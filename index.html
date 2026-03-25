@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalAI eG — Lokale KI-Infrastruktur für Europa</title>
+<meta name="description" content="Eine Genossenschaft für lokale KI-Rechenleistung. Demokratisch gesteuert, grüner Strom, DSGVO-konform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #1a3a2a;
+  --forest-light: #2d5a3f;
+  --moss: #4a7c5c;
+  --sage: #7aad8c;
+  --mint: #b8d4c4;
+  --cream: #f4f1eb;
+  --warm-white: #faf9f6;
+  --sand: #e8e2d8;
+  --bark: #3d2e1f;
+  --amber: #c4873b;
+  --amber-light: #e5a84b;
+  --slate: #4a5568;
+  --light-slate: #718096;
+  --copper: #b87333;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--bark);
+  background: var(--warm-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- GRAIN OVERLAY ---- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ---- LAYOUT ---- */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 7rem 0;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--forest);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(74, 124, 92, 0.3), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26, 58, 42, 0.8), transparent),
+    radial-gradient(ellipse 40% 40% at 60% 60%, rgba(196, 135, 59, 0.08), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(122, 173, 140, 0.15);
+  border: 1px solid rgba(122, 173, 140, 0.25);
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--sage);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--sage);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sage);
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--mint);
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--amber);
+  color: var(--warm-white);
+}
+
+.btn-primary:hover {
+  background: var(--amber-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(196, 135, 59, 0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--mint);
+  border: 1px solid rgba(184, 212, 196, 0.3);
+}
+
+.btn-ghost:hover {
+  border-color: var(--sage);
+  color: var(--cream);
+}
+
+.hero-float {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  opacity: 0.08;
+  animation: floatSlow 20s ease-in-out infinite;
+}
+
+.hero-float svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-52%) rotate(3deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- PROBLEM ---- */
+.problem {
+  background: var(--cream);
+  position: relative;
+}
+
+.problem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sand), transparent);
+}
+
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1.2rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin-bottom: 1.5rem;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  color: var(--slate);
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  background: var(--warm-white);
+  border-radius: 12px;
+  border: 1px solid var(--sand);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--light-slate);
+  line-height: 1.5;
+}
+
+/* ---- SOLUTION ---- */
+.solution {
+  background: var(--warm-white);
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.solution-text .section-title {
+  margin-bottom: 1.2rem;
+}
+
+.solution-text p {
+  font-size: 1.05rem;
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-list li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-size: 0.98rem;
+  color: var(--bark);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(74, 124, 92, 0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--moss);
+  font-size: 0.85rem;
+  margin-top: 1px;
+}
+
+/* ---- CYCLE DIAGRAM ---- */
+.cycle-visual {
+  background: var(--forest);
+  border-radius: 16px;
+  padding: 3rem;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.cycle-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(74, 124, 92, 0.2), transparent);
+}
+
+.cycle-visual h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.cycle-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.cycle-step {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.cycle-node {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cycle-node.energy { background: rgba(229, 168, 75, 0.2); border: 2px solid var(--amber); }
+.cycle-node.compute { background: rgba(122, 173, 140, 0.2); border: 2px solid var(--sage); }
+.cycle-node.heat { background: rgba(184, 115, 51, 0.2); border: 2px solid var(--copper); }
+
+.cycle-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.cycle-info p {
+  font-size: 0.85rem;
+  color: var(--mint);
+  line-height: 1.4;
+}
+
+.cycle-arrow {
+  margin-left: 22px;
+  color: var(--sage);
+  font-size: 1.2rem;
+  opacity: 0.5;
+  padding: 0.3rem 0;
+}
+
+/* ---- COMPARISON ---- */
+.comparison {
+  background: var(--cream);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.92rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.comparison-table thead th {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 1.1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.comparison-table thead th:last-child {
+  background: var(--forest-light);
+}
+
+.comparison-table tbody td {
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--sand);
+  background: var(--warm-white);
+  vertical-align: top;
+}
+
+.comparison-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--forest);
+  background: rgba(74, 124, 92, 0.03);
+  white-space: nowrap;
+}
+
+.comparison-table tbody td:last-child {
+  background: rgba(74, 124, 92, 0.06);
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- PRICING ---- */
+.pricing {
+  background: var(--warm-white);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.price-card {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.price-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+}
+
+.price-card.featured {
+  background: var(--forest);
+  color: var(--cream);
+  border-color: var(--forest);
+}
+
+.price-card.featured .price-label { color: var(--sage); }
+.price-card.featured .price-features li { color: var(--mint); }
+.price-card.featured .price-features li::before { color: var(--sage); }
+
+.price-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1rem;
+}
+
+.price-card.featured .price-tag {
+  color: var(--amber);
+}
+
+.price-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.price-label {
+  font-size: 0.85rem;
+  color: var(--light-slate);
+  margin-bottom: 1.8rem;
+}
+
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.price-features li {
+  font-size: 0.9rem;
+  color: var(--slate);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.price-features li::before {
+  content: '—';
+  color: var(--moss);
+  flex-shrink: 0;
+}
+
+/* ---- CTA ---- */
+.cta {
+  background: var(--forest);
+  color: var(--cream);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 50% 100%, rgba(74, 124, 92, 0.2), transparent);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cta .section-title {
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: var(--mint);
+  margin-bottom: 3rem;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.role-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(122, 173, 140, 0.15);
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.role-card:hover {
+  border-color: var(--sage);
+}
+
+.role-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.role-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.role-desc {
+  font-size: 0.82rem;
+  color: var(--mint);
+  line-height: 1.5;
+}
+
+.cta-contact {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--mint);
+}
+
+.cta-contact a {
+  color: var(--amber-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(229, 168, 75, 0.3);
+  transition: border-color 0.2s;
+}
+
+.cta-contact a:hover {
+  border-color: var(--amber-light);
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--bark);
+  color: var(--sand);
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--mint);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---- SCROLL ANIMATIONS ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  section { padding: 5rem 0; }
+
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pricing-grid,
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .hero-float { display: none; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 1.2rem; }
+  section { padding: 3.5rem 0; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge">Genossenschaft in Gründung</div>
+    <h1>Lokale KI-Infrastruktur<br>für <em>Europa</em></h1>
+    <p class="hero-sub">GPU-Rechenleistung im Eigentum der Gemeinschaft. Demokratisch gesteuert, mit grünem Strom, DSGVO-konform. Wie eine Energiegenossenschaft — nur für KI.</p>
+    <div class="hero-ctas">
+      <a href="#mitmachen" class="btn btn-primary">Mitgründer werden</a>
+      <a href="https://github.com/antontranelis/ki-genossenschaft" class="btn btn-ghost" target="_blank">Konzept lesen ↗</a>
+    </div>
+  </div>
+  <div class="hero-float">
+    <svg viewBox="0 0 400 400" fill="none">
+      <circle cx="200" cy="200" r="180" stroke="rgba(122,173,140,0.3)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="140" stroke="rgba(122,173,140,0.2)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="100" stroke="rgba(122,173,140,0.15)" stroke-width="0.5"/>
+      <circle cx="200" cy="60" r="8" fill="rgba(122,173,140,0.4)"/>
+      <circle cx="320" cy="260" r="6" fill="rgba(196,135,59,0.4)"/>
+      <circle cx="80" cy="240" r="7" fill="rgba(184,115,51,0.3)"/>
+      <line x1="200" y1="68" x2="314" y2="256" stroke="rgba(122,173,140,0.12)" stroke-width="0.5"/>
+      <line x1="314" y1="256" x2="87" y2="237" stroke="rgba(122,173,140,0.12)" stroke-width="0.5"/>
+      <line x1="87" y1="237" x2="200" y2="68" stroke="rgba(122,173,140,0.12)" stroke-width="0.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Das Problem</div>
+      <h2 class="section-title">KI wird die zentrale Infrastruktur<br>unseres Alltags. Wem gehört sie?</h2>
+      <p class="section-text">Gerade lautet die Antwort: einer Handvoll US-Konzerne. Sie betreiben die Rechenzentren, hosten die Modelle, kontrollieren den Zugang. Europa hat kein eigenes Gegenmodell.</p>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Konzerne kontrollieren den Großteil der globalen KI-Infrastruktur</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Europäische Alternativen im Eigentum der Gemeinschaft</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">800</div>
+        <div class="stat-label">Energiegenossenschaften in Deutschland zeigen: Es geht auch anders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2035</div>
+        <div class="stat-label">Bis dahin sind die Strukturen zementiert. Das Zeitfenster ist jetzt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="solution-text reveal">
+        <div class="section-label">Die Lösung</div>
+        <h2 class="section-title">Dieselbe Logik, die bei Solaranlagen funktioniert&nbsp;— auf KI übertragen</h2>
+        <p>Eine eingetragene Genossenschaft, die GPU-Server lokal betreibt. Open-Source-Modelle für alle Mitglieder. GPU-Stunden für Startups und Mittelstand.</p>
+        <ul class="feature-list">
+          <li>
+            <span class="feature-icon">⚡</span>
+            <span><strong>Lokal & resilient</strong> — Server in Deutschland. Läuft auch wenn AWS ausfällt.</span>
+          </li>
+          <li>
+            <span class="feature-icon">🔒</span>
+            <span><strong>DSGVO-konform</strong> — Kein CLOUD Act, kein US-Recht, keine Daten an Dritte.</span>
+          </li>
+          <li>
+            <span class="feature-icon">🗳</span>
+            <span><strong>Demokratisch</strong> — 1 Mitglied = 1 Stimme. Nicht 1 Euro = 1 Stimme.</span>
+          </li>
+          <li>
+            <span class="feature-icon">🌱</span>
+            <span><strong>Grüner Strom</strong> — Partnerschaft mit Energiegenossenschaften.</span>
+          </li>
+          <li>
+            <span class="feature-icon">🔓</span>
+            <span><strong>Open Source</strong> — Llama, Mixtral, DeepSeek. Kein Vendor Lock-in.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="cycle-visual reveal">
+        <h3>Der lokale Kreislauf</h3>
+        <div class="cycle-steps">
+          <div class="cycle-step">
+            <div class="cycle-node energy">☀️</div>
+            <div class="cycle-info">
+              <h4>Energiegenossenschaft</h4>
+              <p>Liefert grünen Strom aus Wind & Solar</p>
+            </div>
+          </div>
+          <div class="cycle-arrow">↓</div>
+          <div class="cycle-step">
+            <div class="cycle-node compute">🖥</div>
+            <div class="cycle-info">
+              <h4>KI-Genossenschaft</h4>
+              <p>Betreibt GPU-Server, hostet Open-Source-Modelle</p>
+            </div>
+          </div>
+          <div class="cycle-arrow">↓</div>
+          <div class="cycle-step">
+            <div class="cycle-node heat">🏠</div>
+            <div class="cycle-info">
+              <h4>Nahwärmenetz</h4>
+              <p>Abwärme heizt Haushalte im Quartier</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--mint); opacity: 0.7;">Lokale Wertschöpfung auf drei Ebenen. Kein Cent geht an AWS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Drei Modelle im Vergleich</div>
+      <h2 class="section-title">Warum Genossenschaft?</h2>
+    </div>
+    <div class="reveal" style="overflow-x: auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Konzern</th>
+            <th>Dezentrales Protokoll</th>
+            <th>Genossenschaft ✦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Eigentum</td><td>Aktionäre</td><td>Keiner / Token-Holder</td><td>Die Mitglieder</td></tr>
+          <tr><td>Steuerung</td><td>Vorstand / Shareholder</td><td>Markt / Token-Governance</td><td>1 Mitglied = 1 Stimme</td></tr>
+          <tr><td>Ziel</td><td>Gewinnmaximierung</td><td>Markteffizienz</td><td>Mitgliedernutzen</td></tr>
+          <tr><td>Preis</td><td>Marge + Lock-in</td><td>Angebot & Nachfrage</td><td>Kostendeckend, stabil</td></tr>
+          <tr><td>Vertrauen</td><td>Marke / Vertrag</td><td>Anonyme Provider</td><td>Bekannte Mitglieder</td></tr>
+          <tr><td>Datenschutz</td><td>CLOUD Act, US-Recht</td><td>Server irgendwo</td><td>Standort bekannt, dt. Recht</td></tr>
+          <tr><td>Resilienz</td><td>Abhängig vom Konzern</td><td>Abhängig vom Netzwerk</td><td>Lokal, autark im Krisenfall</td></tr>
+          <tr><td>Werte</td><td>Wachstum</td><td>Marktneutral</td><td>Gemeinschaftlich entschieden</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Mitgliedschaft</div>
+      <h2 class="section-title">Für alle, die souveräne KI wollen</h2>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-tag">Für alle</div>
+        <div class="price-name">Basis</div>
+        <div class="price-amount">19 €</div>
+        <div class="price-label">pro Monat</div>
+        <ul class="price-features">
+          <li>API-Zugang zu Open-Source-Modellen</li>
+          <li>Chat, Code, Bild, Audio</li>
+          <li>Fair Use (1M Tokens/Tag)</li>
+          <li>DSGVO-konform, keine Logs</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tag">Mehr Leistung</div>
+        <div class="price-name">Power</div>
+        <div class="price-amount">59 €</div>
+        <div class="price-label">pro Monat</div>
+        <ul class="price-features">
+          <li>Alles aus Basis</li>
+          <li>Zugang zu 405B-Modellen</li>
+          <li>Höheres Kontingent</li>
+          <li>Priorität bei Lastspitzen</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-tag">Für Unternehmen</div>
+        <div class="price-name">Startup</div>
+        <div class="price-amount">199 €</div>
+        <div class="price-label">pro Monat</div>
+        <ul class="price-features">
+          <li>Dedizierte GPU-Stunden</li>
+          <li>Fine-Tuning auf eigenen Daten</li>
+          <li>OpenAI-kompatible API</li>
+          <li>SLA & Support</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 2rem; color: var(--light-slate); font-size: 0.9rem;" class="reveal">
+      Zum Vergleich: ChatGPT Plus kostet 20 €/Monat — ohne eigene Infrastruktur, ohne Mitbestimmung, ohne DSGVO-Garantie.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="mitmachen">
+  <div class="container cta-content">
+    <div class="reveal">
+      <div class="section-label" style="color: var(--sage);">Mitgründer gesucht</div>
+      <h2 class="section-title">Es fehlen nur die Menschen,<br>die anfangen</h2>
+      <p class="cta-text">Wir suchen drei Schlüsselrollen für das Gründungsteam. Wenn du dich in einer davon siehst — oder jemanden kennst — melde dich.</p>
+    </div>
+    <div class="roles-grid reveal">
+      <div class="role-card">
+        <div class="role-emoji">⚖️</div>
+        <div class="role-title">Genossenschafts-Erfahrung</div>
+        <div class="role-desc">Gründung, Satzung, Prüfungsverband. Du weißt, wie eine eG funktioniert.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-emoji">🖥️</div>
+        <div class="role-title">GPU-DevOps</div>
+        <div class="role-desc">Hardware, Kubernetes, vLLM. Du kannst einen GPU-Cluster betreiben.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-emoji">☀️</div>
+        <div class="role-title">Energiegenossenschaft</div>
+        <div class="role-desc">Kontakte, Partnerschaftsmodelle. Du kennst die Energie-Genossen-Welt.</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <a href="mailto:anton@utopia-lab.org?subject=LocalAI%20eG%20%E2%80%94%20Interesse" class="btn btn-primary">Kontakt aufnehmen</a>
+      <p class="cta-contact">
+        oder schreib direkt an <a href="mailto:anton@utopia-lab.org">anton@utopia-lab.org</a><br>
+        <a href="https://github.com/antontranelis/ki-genossenschaft" target="_blank" style="color: var(--sage);">Konzept & Businessplan auf GitHub ↗</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>LocalAI eG i.G. — <a href="https://github.com/antontranelis/ki-genossenschaft" target="_blank">GitHub</a> — Ein Projekt von Anton Tranelis & Eli</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
