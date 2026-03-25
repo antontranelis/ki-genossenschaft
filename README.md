@@ -196,7 +196,32 @@ Die Genossenschaft wird zum realen Anwendungsfall des Web of Trust:
 - **Agents** der Mitglieder laufen auf genossenschaftlicher Infrastruktur
 - **Daten** bleiben verschlüsselt, Identität bleibt beim Mitglied
 
+## Offene Entscheidungen
+
+### Zielgruppe
+KI-Startups, Mittelständler, Privatpersonen und Communities. Breiter Ansatz — die Genossenschaft soll für alle da sein, die souveräne KI-Infrastruktur brauchen.
+
+### Angebot
+Beides: Rohe GPU-Stunden für Unternehmen, die eigene Modelle trainieren/betreiben. Und gehostete Open-Source-Modelle (API) für alle, die einfach loslegen wollen.
+
+### Hardware
+Klotzen, nicht kleckern. Erster Node: 8x H100. Solide Basis für Training und Inferenz.
+
+### Standort
+Offen. Berlin ist interessant — Startup-Dichte, politische Nähe, Förderlandschaft. Norddeutschland bleibt Option wegen Windstrom + Abwärme-Potenzial.
+
+### Gründungsteam
+
+**An Bord:**
+- **Anton Tranelis** — Vision, Architektur, Web of Trust
+- **Eli** — Recherche, Konzept, Strategie
+
+**Gesucht:**
+- Jemand mit **Genossenschafts-Erfahrung** (Gründung, Satzung, Prüfungsverband)
+- Jemand mit **Rechenzentrum / GPU-DevOps-Erfahrung** (Hardware, Netzwerk, vLLM/Kubernetes)
+- Jemand aus der **Energiegenossenschafts-Welt** (Kontakte, Partnerschaftsmodelle, Standortfragen)
+
 ---
 
-*Erstellt: 24.03.2026 — Anton & Eli*
-*Status: Konzeptphase*
+*Erstellt: 25.03.2026 — Anton & Eli*
+*Status: Konzeptphase — Mitgründer gesucht*
