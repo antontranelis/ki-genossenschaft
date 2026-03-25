@@ -1,8 +1,36 @@
-# Konzept: KI-Compute-Genossenschaft
+# KI-Genossenschaft
 
-## Die Idee
+## Warum
 
-Eine Genossenschaft (eG), die GPU-Infrastruktur für ihre Mitglieder betreibt. Nicht ein Marktplatz, sondern **gemeinsames Eigentum** an Rechenleistung — demokratisch gesteuert, regional verankert, offen.
+2035 wird KI die zentrale Infrastruktur unseres Alltags sein. Die Frage ist nicht ob, sondern **wem sie gehört**.
+
+Gerade lautet die Antwort: einer Handvoll Konzerne. Sie betreiben die Rechenzentren, hosten die Modelle, kontrollieren den Zugang. Wer KI nutzen will, mietet sich ein — zu ihren Bedingungen, auf ihren Servern, unter ihrer Jurisdiktion.
+
+Das muss nicht so sein.
+
+Deutschland hat ~800 Energiegenossenschaften. Bürger besitzen gemeinsam Solaranlagen und Windräder. Dasselbe Prinzip auf KI übertragen: **Lokale Infrastruktur, im Eigentum der Gemeinschaft, demokratisch gesteuert.**
+
+Nicht weil es romantisch ist. Sondern weil eine Zukunft, in der die gesamte KI-Infrastruktur drei Konzernen gehört, keine lebenswerte Zukunft ist.
+
+## Was
+
+Eine Genossenschaft (eG), die GPU-Infrastruktur für ihre Mitglieder betreibt.
+
+- **Gehostete Open-Source-Modelle** — API-Zugang zu Llama, Mixtral & Co. für alle Mitglieder
+- **GPU-Stunden** — für Startups und Unternehmen, die eigene Modelle trainieren oder betreiben
+- **Lokaler Betrieb** — Server in Deutschland, grüner Strom, Abwärme als Nahwärme
+- **Demokratische Steuerung** — 1 Mitglied = 1 Stimme, nicht 1 Euro = 1 Stimme
+
+## Local First — für die gesamte KI-Infrastruktur
+
+Local First bedeutet bisher: Deine Daten liegen zuerst auf deinem Gerät. Wir erweitern das Prinzip:
+
+- **Deine Daten** gehören dir (verschlüsselt, dezentrale Identität)
+- **Deine KI** läuft lokal — auf Infrastruktur, die deiner Gemeinschaft gehört
+- **Dein Strom** kommt von nebenan
+- **Deine Abwärme** heizt dein Quartier
+
+Wenn morgen die großen Cloud-Regionen ausfallen — läuft die lokale KI weiter. Das ist keine Paranoia. Das ist Daseinsvorsorge.
 
 ## Warum Genossenschaft statt dezentrales Protokoll?
 
