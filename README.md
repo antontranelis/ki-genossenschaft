@@ -32,18 +32,20 @@ Local First bedeutet bisher: Deine Daten liegen zuerst auf deinem Gerät. Wir er
 
 Wenn morgen die großen Cloud-Regionen ausfallen — läuft die lokale KI weiter. Das ist keine Paranoia. Das ist Daseinsvorsorge.
 
-## Warum Genossenschaft statt dezentrales Protokoll?
+## Drei Modelle im Vergleich
 
-| | Dezentrales Protokoll (Akash, Golem) | Genossenschaft |
-|---|---|---|
-| **Eigentum** | Keiner / Token-Holder | Die Mitglieder |
-| **Steuerung** | Markt / Token-Governance | 1 Mitglied = 1 Stimme |
-| **Preis** | Angebot & Nachfrage | Kostendeckend, stabil |
-| **Verlässlichkeit** | Schwankt mit Markt | Garantierte Kapazität |
-| **Vertrauen** | Anonyme Provider | Bekannte Mitglieder |
-| **Zugang** | Crypto/Token nötig | Euro, Mitgliedsbeitrag |
-| **Datenschutz** | Server irgendwo | Standort bekannt, deutsches Recht |
-| **Werte** | Marktneutral | Gemeinschaftlich entschieden |
+| | Konzern (AWS, Google, Azure) | Dezentrales Protokoll (Akash, Golem) | Genossenschaft |
+|---|---|---|---|
+| **Eigentum** | Aktionäre | Keiner / Token-Holder | Die Mitglieder |
+| **Steuerung** | Vorstand / Shareholder | Markt / Token-Governance | 1 Mitglied = 1 Stimme |
+| **Ziel** | Gewinnmaximierung | Markteffizienz | Mitgliedernutzen |
+| **Preis** | Marge + Lock-in | Angebot & Nachfrage | Kostendeckend, stabil |
+| **Verlässlichkeit** | Hoch (aber abhängig) | Schwankt mit Markt | Garantierte Kapazität |
+| **Vertrauen** | Marke / Vertrag | Anonyme Provider | Bekannte Mitglieder |
+| **Zugang** | Kreditkarte, Vendor Lock-in | Crypto/Token nötig | Euro, Mitgliedsbeitrag |
+| **Datenschutz** | CLOUD Act, US-Recht | Server irgendwo | Standort bekannt, deutsches Recht |
+| **Resilienz** | Abhängig von Konzernentscheidungen | Abhängig von Netzwerk | Lokal, autark im Krisenfall |
+| **Werte** | Wachstum | Marktneutral | Gemeinschaftlich entschieden |
 
 ## Schritte
 
