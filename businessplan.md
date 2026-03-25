@@ -90,6 +90,36 @@ Dagegen spricht:
 - Open-Source-Modelle sind noch nicht auf GPT-4o-Level (aber der Abstand schrumpft schnell)
 - 650 zahlende Mitglieder in 9 Monaten ist ambitioniert
 
+## Skalierung: Wann GPU-Stunden konkurrenzfähig werden
+
+Mit einem Node können wir im reinen GPU-Stunden-Modell nicht mit spezialisierten Anbietern konkurrieren:
+
+| Anbieter | H100 EUR/GPU/Stunde |
+|---|---|
+| CoreWeave | 1,90–2,10 |
+| Lambda Labs | 2,30–2,80 |
+| AWS / GCP / Azure | 3,50–4,50 |
+| **Wir (1 Node)** | **4,07** |
+
+Der Grund: Fixkosten (GF, Büro, Verwaltung) verteilen sich auf nur 8 GPUs. Das ändert sich mit Skalierung:
+
+| Nodes | GPUs | Fixkosten/Monat | Kosten/GPU-Stunde (80%) |
+|---|---|---|---|
+| 1 | 8 | 19.000 | 4,07 |
+| 3 | 24 | 34.000 | 2,43 |
+| 5 | 40 | 47.000 | 2,01 |
+| 10 | 80 | 75.000 | 1,60 |
+
+Jeder weitere Node kostet nur ~15.000 EUR/Monat (Hardware + Strom). Die Verwaltungskosten wachsen kaum. Ab 3 Nodes sind wir auf Lambda-Niveau, ab 5 schlagen wir sie.
+
+### Strategie daraus
+
+**Phase 1 (1 Node):** Mitgliedschaften tragen die Fixkosten. GPU-Stunden als Zusatz, nicht Hauptgeschäft. Startups kommen wegen DSGVO + Vertrauen, nicht wegen Preis.
+
+**Phase 2 (3+ Nodes):** GPU-Stunden werden konkurrenzfähig (~2,40 EUR). Aktiver Vertrieb an Startups und Mittelstand.
+
+**Phase 3 (Föderation, 10+ Nodes):** Mehrere lokale Genossenschaften, gemeinsame Verwaltung. Grenzkosten unter 2,00 EUR/GPU-Stunde. Echte Alternative zu den US-Anbietern.
+
 ## Zeitleiste
 
 | Monat | Meilenstein |
