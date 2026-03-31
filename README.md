@@ -47,31 +47,85 @@ Wenn morgen die großen Cloud-Regionen ausfallen — läuft die lokale KI weiter
 | **Resilienz** | Abhängig von Konzernentscheidungen | Abhängig von Netzwerk | Lokal, autark im Krisenfall |
 | **Werte** | Wachstum | Marktneutral | Gemeinschaftlich entschieden |
 
-## Schritte
+## Die Zahlen
 
-### Phase 1: Kern bilden (0–3 Monate)
-- 3+ Gründungsmitglieder finden
-- Vision & Satzung entwerfen
-- Prüfungsverband kontaktieren (Empfehlung: **Innova eG** oder **PkmG** — tech-freundlich, bezahlbar)
-- Businessplan / Tragfähigkeitskonzept erstellen
+### Investition & Infrastruktur
 
-### Phase 2: Gründung (3–6 Monate)
-- Gründungsversammlung
-- Gründungsgutachten durch Prüfungsverband (4–12 Wochen, Bottleneck)
-- Notarielle Beurkundung
-- Eintragung ins Genossenschaftsregister
-- Kosten: ca. 3.000–10.000 EUR
+| | 1 Node | 5 Nodes |
+|---|---|---|
+| Hardware | 275.000 EUR | 1.375.000 EUR |
+| GPUs (H100) | 8 | 40 |
+| GPU-Stunden/Monat (80%) | 4.672 | 23.360 |
+| Kosten/GPU-Stunde | 4,07 EUR | **2,01 EUR** |
+| Mitglieder bedienbar | 500–1.000 | 3.000–5.000 |
+| Konkurrenzfähig GPU-Markt | Nein | Ja |
 
-### Phase 3: Infrastruktur aufbauen (6–12 Monate)
-- Erste GPU-Server (z.B. bei Hetzner, eigene Hardware, oder Colocation)
-- Open-Source-Stack aufsetzen (Kubernetes, Ollama, vLLM o.ä.)
-- Mitglieder onboarden
-- Erste Modelle hosten (lokale Inferenz für Mitglieder)
+**Ziel: 5 Nodes.** Ab Tag 1 konkurrenzfähig im GPU-Stunden-Markt.
 
-### Phase 4: Wachstum (12+ Monate)
-- Weitere Mitglieder, weitere Hardware
-- Föderationsmodell: lokale Knoten, verbunden im Netzwerk
-- Integration mit Web of Trust (Mitgliedschaft = verifizierte Identität)
+### Startfinanzierung: 2.000.000 EUR
+
+| Position | EUR |
+|---|---|
+| Hardware (5 x H100 Server) | 1.375.000 |
+| Colocation Setup | 50.000 |
+| Team (4 Vollzeit, 18 Monate) | 378.000 |
+| Marketing & Community | 50.000 |
+| Gründung, Freelancer, Büro, Puffer | 147.000 |
+| **Gesamt** | **~2.000.000** |
+
+### Finanzierungsmix
+
+| Quelle | EUR | Anmerkung |
+|---|---|---|
+| Gründungsmitglieder (200 x 2.000 EUR) | 400.000 | Genossenschaftsanteile |
+| GLS Bank / KfW | 500.000 | Zinsgünstig für eG |
+| Fördermittel | 1.100.000 | Digitale Souveränität, Gemeinwohl-KI |
+| **Gesamt** | **2.000.000** | |
+
+### Monatliche Kosten: ~76.500 EUR
+
+| Position | EUR/Monat |
+|---|---|
+| Hardware-Amortisation (5 Nodes / 36 Mo.) | 38.200 |
+| Colocation (5 Nodes) | 11.875 |
+| Team (4 Vollzeit) | 21.000 |
+| Freelancer, Büro, Misc | 5.400 |
+| **Gesamt** | **~76.500** |
+
+### Einnahmen (Ziel: Monat 18)
+
+| Einnahmequelle | EUR/Monat |
+|---|---|
+| 1.500 Basis-Mitglieder (19 EUR) | 28.500 |
+| 500 Power-Mitglieder (59 EUR) | 29.500 |
+| 100 Startup-Mitglieder (199 EUR) | 19.900 |
+| GPU-Stunden (10 GPUs, 70%) | 12.750 |
+| **Gesamt** | **90.650** |
+
+**Break-even bei ~2.000 Mitgliedern.** Überschuss danach: ~14.000 EUR/Monat für weitere Nodes.
+
+### Team
+
+| Rolle | EUR/Jahr |
+|---|---|
+| Geschäftsführung — Vision, Strategie, Partnerschaften | 72.000 |
+| CTO / Infrastruktur — Hardware, Stack, Security | 72.000 |
+| Community & Vertrieb — Mitglieder gewinnen & halten | 54.000 |
+| Policy & Kooperationen — Fördermittel, Politik, Verbände | 54.000 |
+| **Gesamt** | **252.000** |
+
+## Zeitleiste
+
+| Monat | Meilenstein |
+|---|---|
+| 0–3 | Gründungsteam, Satzung, Prüfungsverband |
+| 3–6 | Gründung eG, Förderanträge, GLS/KfW Gespräche |
+| 6–9 | Finanzierung gesichert, Hardware bestellt |
+| 9–12 | 5 Nodes live, Stack läuft, erste Mitglieder |
+| 12–15 | 1.000 Mitglieder, GPU-Stunden-Geschäft startet |
+| 15–18 | 2.000 Mitglieder, Break-even |
+| 18–24 | Überschuss, weitere Nodes, Föderationsmodell |
+| 24–36 | Erste Partnergenossenschaften in anderen Regionen |
 
 ## Was zu bedenken ist
 
