@@ -236,7 +236,7 @@ Das ist digitale Daseinsvorsorge.
 ```
 Energiegenossenschaft ──── Grüner Strom ────▶ KI-Genossenschaft
                                                       │
-                                              Abwärme  │
+                                              Abwärme │
                                                       ▼
                                               Nahwärmenetz
                                                       │
