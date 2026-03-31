@@ -184,23 +184,34 @@ Wenn morgen die großen Cloud-Regionen ausfallen — läuft die lokale KI weiter
 
 ## Wirtschaftlichkeit
 
-### Hardware-Amortisation (H100)
-- 8x H100-Server: ca. 275.000 EUR
-- Über 3 Jahre amortisiert + Betrieb: **~1,90–2,30 EUR/GPU/Stunde**
-- AWS/GCP/Azure: 3,50–4,50 EUR/GPU/Stunde
-- Lambda/CoreWeave: 2,00–2,50 EUR/GPU/Stunde
-- **Break-even bei ~55% Auslastung** (gegen Hyperscaler)
+### GPU-Stunden-Preise im Vergleich
+
+| Anbieter | EUR/GPU-Stunde |
+|---|---|
+| AWS / GCP / Azure | 3,50–4,50 |
+| Lambda Labs / CoreWeave | 2,00–2,50 |
+| **KI-Genossenschaft (5 Nodes)** | **2,01** |
+| KI-Genossenschaft (1 Node) | 4,07 |
+
+Mit 5 Nodes (40 GPUs) sind wir ab Tag 1 auf Augenhöhe mit den günstigsten kommerziellen Anbietern — aber ohne Vendor Lock-in und mit DSGVO-Garantie.
 
 ### Open-Source-Inferenz
-- Llama 70B selbst gehostet: ~0,30 EUR/1M Tokens
-- OpenAI GPT-4o: ~9,00 EUR/1M Tokens
-- **Faktor 10–30x günstiger** für Mitglieder
+
+| Modell | Kosten/1M Tokens |
+|---|---|
+| Llama 70B (selbst gehostet) | ~0,30 EUR |
+| OpenAI GPT-4o | ~9,00 EUR |
+
+**Faktor 10–30x günstiger** für Mitglieder durch eigene Infrastruktur.
 
 ### Energiekosten Deutschland vs. USA
-- Deutschland: 0,12–0,20 EUR/kWh
-- Texas: 0,03–0,05 EUR/kWh
-- **Mehrkosten: ca. 5–10% auf den GPU/Stunden-Preis** — relevant, aber nicht disqualifizierend
-- Mitigation: Standort Norddeutschland (Windstrom-Überschuss), direkte PPA mit Energiegenossenschaft
+
+| | EUR/kWh |
+|---|---|
+| Deutschland | 0,12–0,20 |
+| Texas | 0,03–0,05 |
+
+**Mehrkosten: ca. 5–10% auf den GPU-Stunden-Preis** — relevant, aber nicht disqualifizierend. Mitigation: Standort Norddeutschland (Windstrom-Überschuss), direkte PPA mit Energiegenossenschaft.
 
 ### Wettbewerbsvorteil
 Preis allein gewinnt nicht gegen US-Anbieter. Aber die Kombination:
