@@ -1,5 +1,7 @@
 # KI-Genossenschaft
 
+> **Open Source Konzept** — Dieses Konzept steht unter der [MIT-Lizenz](LICENSE). Es darf frei verwendet, weiterentwickelt und weitergetragen werden. Wir freuen uns, wenn jemand diese Idee aufgreift und umsetzt — egal ob als Genossenschaft, Verein oder in einer anderen Form. Der Stein soll ins Rollen kommen.
+
 ## Warum
 
 2035 wird KI die zentrale Infrastruktur unseres Alltags sein. Die Frage ist nicht ob, sondern **wem sie gehört**.
@@ -305,18 +307,13 @@ Klotzen, nicht kleckern. Erster Node: 8x H100. Solide Basis für Training und In
 ### Standort
 Offen. Berlin ist interessant — Startup-Dichte, politische Nähe, Förderlandschaft. Norddeutschland bleibt Option wegen Windstrom + Abwärme-Potenzial.
 
-### Gründungsteam
+### Wer wird gebraucht?
 
-**An Bord:**
-- **Anton Tranelis** — Vision, Architektur, Web of Trust
-- **Eli** — Recherche, Konzept, Strategie
-
-**Gesucht:**
 - Jemand mit **Genossenschafts-Erfahrung** (Gründung, Satzung, Prüfungsverband)
 - Jemand mit **Rechenzentrum / GPU-DevOps-Erfahrung** (Hardware, Netzwerk, vLLM/Kubernetes)
 - Jemand aus der **Energiegenossenschafts-Welt** (Kontakte, Partnerschaftsmodelle, Standortfragen)
+- Jemand mit **Vision und Strategie** — der das Ganze zusammenhält
 
 ---
 
-*Erstellt: 25.03.2026 — Anton & Eli*
-*Status: Konzeptphase — Mitgründer gesucht*
+*Status: Konzeptphase — offen für alle, die es umsetzen wollen*
