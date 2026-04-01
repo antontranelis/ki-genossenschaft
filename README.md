@@ -285,14 +285,6 @@ Nicht eine große zentrale Genossenschaft, sondern ein **Netzwerk lokaler KI-Gen
 - Gegenseitige Kapazitäts-Sharing bei Lastspitzen
 - Lokale Autonomie, globale Vernetzung
 
-## Web of Trust Integration
-
-Die Genossenschaft wird zum realen Anwendungsfall des Web of Trust:
-- **Mitgliedschaft** = verifizierte dezentrale Identität
-- **Vertrauen** zwischen Mitgliedern = Grundlage für Ressourcenteilung
-- **Agents** der Mitglieder laufen auf genossenschaftlicher Infrastruktur
-- **Daten** bleiben verschlüsselt, Identität bleibt beim Mitglied
-
 ## Offene Entscheidungen
 
 ### Zielgruppe
